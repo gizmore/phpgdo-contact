@@ -10,7 +10,7 @@ use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
 use GDO\Mail\Mail;
 use GDO\User\GDO_User;
-use GDO\Profile\GDT_ProfileLink;
+use GDO\User\GDT_ProfileLink;
 use GDO\UI\GDT_Link;
 
 /**
@@ -35,7 +35,7 @@ final class Form extends MethodForm
 		$names = [];
 		foreach (GDO_User::admins() as $admin)
 		{
-			$names[] = GDT_ProfileLink::make()->forUser($admin)->withAvatar()->withNickname()->renderCell();
+			$names[] = GDT_ProfileLink::make()->user($admin)->nickname()->avatarUser($admin)->render();
 		}
 		$names = implode(',', $names);
 		$email = Module_Contact::instance()->cfgEmail();
@@ -46,8 +46,8 @@ final class Form extends MethodForm
 	
 	public function createForm(GDT_Form $form) : void
 	{
-	    $form->info($this->getInfoText());
-		$form->addFields(GDO_ContactMessage::table()->getGDOColumns($this->contactFields()));
+	    $form->textRaw($this->getInfoText());
+		$form->addFields(...GDO_ContactMessage::table()->getGDOColumns($this->contactFields()));
 		$form->getField('cmsg_email')->initial(GDO_User::current()->getMail());
 		if (Module_Contact::instance()->cfgCaptchaEnabled())
 		{

@@ -1,4 +1,5 @@
 <?php
+namespace GDO\Contact\lang;
 return array(
 'link_contact' =>'Contatti',
 'link_message' =>'Mostra',

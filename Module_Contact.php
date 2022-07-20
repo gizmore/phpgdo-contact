@@ -7,13 +7,15 @@ use GDO\Core\GDT_Checkbox;
 use GDO\UI\GDT_Link;
 use GDO\User\GDO_User;
 use GDO\UI\GDT_Page;
+use GDO\UI\GDT_PageBar;
 
 /**
  * Contact Module.
  * Provides contact to admins, and
  * Write users a mail without spoiling their email.
+ * 
  * @author gizmore
- * @version 6.10.6
+ * @version 7.0.1
  * @since 4.0.1
  */
 final class Module_Contact extends GDO_Module
@@ -24,7 +26,7 @@ final class Module_Contact extends GDO_Module
 	public function onLoadLanguage() : void { $this->loadLanguage('lang/contact'); }
 	public function getClasses() : array { return ['GDO\Contact\GDO_ContactMessage']; }
 	public function href_administrate_module() { return href('Contact', 'Messages'); }
-	public function getDependencies() : array { return ['Profile']; }
+	public function getDependencies() : array { return []; }
 	public function getConfig() : array
 	{
 		return [
@@ -33,8 +35,7 @@ final class Module_Contact extends GDO_Module
 			GDT_Email::make('contact_mail')->initial(GDO_ADMIN_EMAIL)->required(),
 			GDT_Email::make('contact_mail_sender')->initial(GDO_BOT_EMAIL)->notNull(),
 			GDT_Email::make('contact_mail_receiver'),
-		    GDT_Checkbox::make('hook_left_bar')->initial('1'),
-		    GDT_Checkbox::make('hook_right_bar')->initial('0'),
+		    GDT_PageBar::make('hook_bar')->initial('bottom'),
 		];
 	}
 
@@ -55,10 +56,8 @@ final class Module_Contact extends GDO_Module
 	##############
 	public function onInitSidebar() : void
 	{
-	    if ($this->cfgHookLeftBar())
-	    {
-	        GDT_Page::$INSTANCE->leftNav->addField(GDT_Link::make('link_contact')->href(href('Contact', 'Form')));
-	    }
+		$bar = $this->getConfigValue('hook_bar');
+	    $bar->addField(GDT_Link::make('link_contact')->href(href('Contact', 'Form')));
 	}
 	
 }

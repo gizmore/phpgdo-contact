@@ -10,6 +10,13 @@ use GDO\UI\GDT_Message;
 use GDO\User\GDO_User;
 use GDO\UI\GDT_Title;
 
+/**
+ * A message that got sent by the contact form.
+ * 
+ * @author gizmore
+ * @version 7.0.1
+ * @since 3.5.0
+ */
 final class GDO_ContactMessage extends GDO
 {
 	public function gdoCached() : bool { return false; }
@@ -26,15 +33,13 @@ final class GDO_ContactMessage extends GDO
 		];
 	}
 	
-	/**
-	 * @return GDO_User
-	 */
-	public function getUser() { return $this->getValue('cmsg_user_id'); }
+	public function getUser() : GDO_User { return $this->gdoValue('cmsg_user_id'); }
 	
-	public function getEmail() { return $this->gdoVar('cmsg_email'); }
-	public function getTitle() { return $this->gdoVar('cmsg_title'); }
-	public function getMessage() { return $this->gdoColumn('cmsg_message')->renderCell(); }
-	public function getCreatedAt() { return $this->gdoVar('cmsg_created_at'); }
+	public function getEmail() : string { return $this->gdoVar('cmsg_email'); }
+	public function getTitle() : string { return $this->gdoVar('cmsg_title'); }
+	public function getMessage() : string { return $this->gdoColumn('cmsg_message')->renderCell(); }
+	public function getCreatedAt() : string { return $this->gdoVar('cmsg_created_at'); }
 	
-	public function href_link_message() { return href('Contact', 'Message', '&id='.$this->getID()); }
+	public function href_link_message() : string { return href('Contact', 'Message', '&id='.$this->getID()); }
+
 }
