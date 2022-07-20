@@ -4,24 +4,40 @@ namespace GDO\Contact\Method;
 use GDO\Admin\MethodAdmin;
 use GDO\Contact\GDO_ContactMessage;
 use GDO\Core\Method;
-use GDO\Util\Common;
+use GDO\Core\GDT_Object;
 
+/**
+ * Display a contact message for admins.
+ * 
+ * @author gizmore
+ */
 final class Message extends Method
 {
 	use MethodAdmin;
 	
 	public function getPermission() : ?string { return 'staff'; }
 	
-	private $message;
+	private GDO_ContactMessage $message;
 	
-	public function onInit() : void
+	public function gdoParameters() : array
 	{
-		$this->message = GDO_ContactMessage::table()->find(Common::getRequestString('id'));
+		return [
+			GDT_Object::make('id')->table(GDO_ContactMessage::table())->notNull(),
+		];
+	}
+	
+	public function getMessage() : GDO_ContactMessage
+	{
+		if (!isset($this->message))
+		{
+			$this->message = $this->gdoParameterValue('id');
+		}
+		return $this->message;
 	}
 	
 	public function execute()
 	{
-		return $this->templateMessage($this->message);
+		return $this->templateMessage($this->getMessage());
 	}
 	
 	public function templateMessage(GDO_ContactMessage $message)
