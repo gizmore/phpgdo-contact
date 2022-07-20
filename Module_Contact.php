@@ -6,7 +6,6 @@ use GDO\Mail\GDT_Email;
 use GDO\Core\GDT_Checkbox;
 use GDO\UI\GDT_Link;
 use GDO\User\GDO_User;
-use GDO\UI\GDT_Page;
 use GDO\UI\GDT_PageBar;
 
 /**
