@@ -5,7 +5,7 @@ return [
 	'link_message' => 'Show',
 	'contact_info' => 'Here you can contact the Adminstrators: %s. Alternatively you can write a mail to %s directly.',
 	######################################
-	'ft_contact_form' => 'Contact',
+	'mt_contact_form' => 'Contact',
 	'msg_contact_mail_sent' => 'Your message has been sent to the administrators of %s.',
 	######################################
 	'card_title_contact_message' => 'Contact Message',
@@ -37,7 +37,7 @@ The %2$s Team',
 	'cfg_contact_mail_receiver' => 'Email for mailing list receivement',
 	'cfg_tt_contact_mail_receiver' => 'If set this is the only reciver mail in the contact mailing process.',
 	
-	'mdescr_contact_form' => 'Contact the admins of %s',
+	'md_contact_form' => 'Contact the admins of %s',
 	'list_contact_messages' => '%s Contact messages',
 	
 	# 7.0.0

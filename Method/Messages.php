@@ -3,6 +3,7 @@ namespace GDO\Contact\Method;
 
 use GDO\Admin\MethodAdmin;
 use GDO\Contact\GDO_ContactMessage;
+use GDO\Core\GDO;
 use GDO\Table\MethodQueryTable;
 use GDO\UI\GDT_Button;
 
@@ -16,7 +17,7 @@ final class Messages extends MethodQueryTable
 	
 	public function getPermission() : ?string { return 'staff'; }
 	
-	public function gdoTable()
+	public function gdoTable() : GDO
 	{
 	    return GDO_ContactMessage::table();
 	}

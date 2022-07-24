@@ -5,7 +5,7 @@ return array(
 'link_message' =>'Mostra',
 'contact_info' => 'Qui avete possibilitá di contattare l´amministratore: %s. Alternativamente potete inviare una mail direttamente a %s.',	
 ######################################
-'ft_contact_form' => 'Contatto',
+'mt_contact_form' => 'Contatto',
 'msg_contact_mail_sent' => 'Il suo messaggio é stato inviato ai amministratori.',
 ######################################
 'card_title_contact_message' => 'Messaggio di contatto',
@@ -37,6 +37,6 @@ Il suo %2$s Team',
 'cfg_contact_mail_sender' => 'Email sender',
 'cfg_contact_mail_receiver' => 'Email for mailing list receivement',
 'cfg_tt_contact_mail_receiver' => 'If set this is the only reciver mail in the contact mailing process.',
-'mdescr_contact_form' => 'Contattare gli amministratori del %s e i contatti.',
+'md_contact_form' => 'Contattare gli amministratori del %s e i contatti.',
 'list_contact_messages' => '%s messaggi di contatto',
 );

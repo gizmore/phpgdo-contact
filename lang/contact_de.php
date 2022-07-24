@@ -5,7 +5,7 @@ return array(
 'link_message' => 'Show',
 'contact_info' => 'Hier können Sie die Adminstratoren kontaktieren: %s. Sie können auch direkt eine Email an %s schreiben.',
 ######################################
-'ft_contact_form' => 'Kontakt',
+'mt_contact_form' => 'Kontakt',
 'msg_contact_mail_sent' => 'Ihre Nachricht wurde an die Adminstratoren gesendet.',
 ######################################
 'card_title_contact_message' => 'Kontakt Nachricht',
@@ -37,6 +37,6 @@ Das %2$s Team',
 'cfg_contact_mail_receiver' => 'Email für Verteilerempfang',
 'cfg_tt_contact_mail_receiver' => 'Ist dies gesetzt wird nur eine einzige Email gesendet anstatt an alle Mitarbeiter einzeln.',
 
-'mdescr_contact_form' => 'Kontaktiere die %s Administratoren und Ansprechpartner.',
+'md_contact_form' => 'Kontaktiere die %s Administratoren und Ansprechpartner.',
 'list_contact_messages' => '%s Kontakt Nachrichten',
 );
