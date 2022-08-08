@@ -36,7 +36,7 @@ Il suo %2$s Team',
 'cfg_contact_mail' => 'Email für direct contact',
 'cfg_contact_mail_sender' => 'Email sender',
 'cfg_contact_mail_receiver' => 'Email for mailing list receivement',
-'cfg_tt_contact_mail_receiver' => 'If set this is the only reciver mail in the contact mailing process.',
+'tt_cfg_contact_mail_receiver' => 'If set this is the only reciver mail in the contact mailing process.',
 'md_contact_form' => 'Contattare gli amministratori del %s e i contatti.',
 'list_contact_messages' => '%s messaggi di contatto',
 );

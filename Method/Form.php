@@ -35,7 +35,7 @@ final class Form extends MethodForm
 		$names = [];
 		foreach (GDO_User::admins() as $admin)
 		{
-			$names[] = GDT_ProfileLink::make()->user($admin)->nickname()->avatarUser($admin)->render();
+			$names[] = GDT_ProfileLink::make()->level()->user($admin)->nickname()->avatarUser($admin)->render();
 		}
 		$names = implode(',', $names);
 		$email = Module_Contact::instance()->cfgEmail();

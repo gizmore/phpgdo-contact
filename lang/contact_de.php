@@ -35,7 +35,7 @@ Das %2$s Team',
 'cfg_contact_mail' => 'Email für Direktkontakt',
 'cfg_contact_mail_sender' => 'Email für Absender',
 'cfg_contact_mail_receiver' => 'Email für Verteilerempfang',
-'cfg_tt_contact_mail_receiver' => 'Ist dies gesetzt wird nur eine einzige Email gesendet anstatt an alle Mitarbeiter einzeln.',
+'tt_cfg_contact_mail_receiver' => 'Ist dies gesetzt wird nur eine einzige Email gesendet anstatt an alle Mitarbeiter einzeln.',
 
 'md_contact_form' => 'Kontaktiere die %s Administratoren und Ansprechpartner.',
 'list_contact_messages' => '%s Kontakt Nachrichten',
