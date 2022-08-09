@@ -4,6 +4,7 @@ namespace GDO\Contact\Method;
 use GDO\Admin\MethodAdmin;
 use GDO\Contact\GDO_ContactMessage;
 use GDO\Core\GDO;
+use GDO\DB\Query;
 use GDO\Table\MethodQueryTable;
 use GDO\UI\GDT_Button;
 
@@ -22,7 +23,7 @@ final class Messages extends MethodQueryTable
 	    return GDO_ContactMessage::table();
 	}
 	
-	public function getQuery()
+	public function getQuery() : Query
 	{
 	    return $this->gdoTable()->select();
 	}

@@ -18,7 +18,7 @@ use GDO\UI\GDT_Link;
  * Sends mail to staff or single recipient in module config.
  * 
  * @author gizmore
- * @version 6.11.1
+ * @version 7.0.1
  * @since 3.2.0
  */
 final class Form extends MethodForm
@@ -61,7 +61,7 @@ final class Form extends MethodForm
 	{
 		$message = GDO_ContactMessage::blank($form->getFormVars())->insert();
 		$this->sendMails($message);
-		$this->resetForm();
+		$this->resetForm(true);
 		return $this->message('msg_contact_mail_sent', [sitename()])->addField($this->renderPage());
 	}
 	
