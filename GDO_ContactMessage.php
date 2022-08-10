@@ -37,7 +37,7 @@ final class GDO_ContactMessage extends GDO
 	
 	public function getEmail() : ?string { return $this->gdoVar('cmsg_email'); }
 	public function getTitle() : string { return $this->gdoVar('cmsg_title'); }
-	public function getMessage() : string { return $this->gdoColumn('cmsg_message')->renderCell(); }
+	public function getMessage() : string { return $this->gdoColumn('cmsg_message')->renderHTML(); }
 	public function getCreatedAt() : string { return $this->gdoVar('cmsg_created_at'); }
 	
 	public function href_link_message() : string { return href('Contact', 'Message', '&id='.$this->getID()); }
