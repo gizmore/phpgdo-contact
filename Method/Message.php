@@ -45,4 +45,9 @@ final class Message extends Method
 		return $this->templatePHP('message.php', ['message' => $message]);
 	}
 	
+	public function getMethodTitle() : string
+	{
+		return t('card_title_contact_message');
+	}
+	
 }
