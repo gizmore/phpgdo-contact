@@ -26,6 +26,7 @@ final class Module_Contact extends GDO_Module
 	public function getClasses() : array { return ['GDO\Contact\GDO_ContactMessage']; }
 	public function href_administrate_module() : ?string { return href('Contact', 'Messages'); }
 	public function getDependencies() : array { return ['Mail']; }
+	public function getFriendencies() : array { return ['Captcha']; }
 	public function getConfig() : array
 	{
 		return [
@@ -41,8 +42,8 @@ final class Module_Contact extends GDO_Module
 	##############
 	### Config ###
 	##############
-	public function cfgCaptchaGuest() { return $this->getConfigValue('contact_captcha', '1'); }
-	public function cfgCaptchaMember() { return $this->getConfigValue('member_captcha', '0'); }
+	public function cfgCaptchaGuest() { return $this->getConfigValue('contact_captcha', '1') && module_enabled('Captcha'); }
+	public function cfgCaptchaMember() { return $this->getConfigValue('member_captcha', '0') && module_enabled('Captcha'); }
 	public function cfgCaptchaEnabled() { return GDO_User::current()->isMember() ? $this->cfgCaptchaMember() : $this->cfgCaptchaGuest(); }
 	public function cfgEmail() { return $this->getConfigVar('contact_mail'); }
 	public function cfgEmailSender() { return $this->getConfigVar('contact_mail_sender'); }
