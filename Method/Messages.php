@@ -18,6 +18,11 @@ final class Messages extends MethodQueryTable
 	
 	public function getPermission() : ?string { return 'staff'; }
 	
+	public function getMethodTitle() : string
+	{
+		return t('card_title_contact_message');
+	}
+	
 	public function gdoTable() : GDO
 	{
 	    return GDO_ContactMessage::table();
