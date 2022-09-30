@@ -40,7 +40,7 @@ final class Form extends MethodForm
 		$names = implode(',', $names);
 		$email = Module_Contact::instance()->cfgEmail();
 		$subject = t('mail_subj_contact', [sitename()]);
-		$email = GDT_Link::make()->href('mailto:'.$email.'?subject='.urlencode($subject))->labelRaw($email)->renderHTML();
+		$email = GDT_Link::make()->href('mailto:'.$email.'?subject='.urlencode($subject))->textRaw($email)->renderHTML();
 		return t('contact_info', [$names, $email]);
 	}
 	
