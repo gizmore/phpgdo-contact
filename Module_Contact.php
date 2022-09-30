@@ -57,7 +57,9 @@ final class Module_Contact extends GDO_Module
 	public function onInitSidebar() : void
 	{
 		$bar = $this->getConfigValue('hook_bar');
-	    $bar->addField(GDT_Link::make('link_contact')->href(href('Contact', 'Form')));
+	    $bar->addField(GDT_Link::make('link_contact')
+	    		->href(href('Contact', 'Form'))
+	    		->icon('message'));
 	}
 	
 }
