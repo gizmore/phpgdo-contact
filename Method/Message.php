@@ -42,7 +42,7 @@ final class Message extends Method
 	
 	public function templateMessage(GDO_ContactMessage $message)
 	{
-		return $this->templatePHP('message.php', ['message' => $message]);
+		return $this->templatePHP('message_card.php', ['message' => $message]);
 	}
 	
 	public function getMethodTitle() : string
