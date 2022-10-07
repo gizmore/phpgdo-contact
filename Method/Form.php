@@ -30,18 +30,28 @@ final class Form extends MethodForm
 		return ['cmsg_email', 'cmsg_title', 'cmsg_message'];
 	}
 	
-	private function getInfoText()
+	private function getInfoText(): string
 	{
+		$c = Module_Contact::instance();
 		$names = [];
 		foreach (GDO_User::admins() as $admin)
 		{
 			$names[] = GDT_ProfileLink::make()->level()->user($admin)->nickname()->avatarUser($admin)->avatarSize(28)->renderHTML();
 		}
 		$names = implode(',', $names);
-		$email = Module_Contact::instance()->cfgEmail();
+		$email = $c->cfgEmail();
 		$subject = t('mail_subj_contact', [sitename()]);
 		$email = GDT_Link::make()->href('mailto:'.$email.'?subject='.urlencode($subject))->textRaw($email)->renderHTML();
-		return t('contact_info', [$names, $email]);
+		
+		$text = t('contact_info', [$names, $email]);
+		
+		if ($c->cfgWhatsAppContact())
+		{
+			$text .= "<br/>\n";
+			$text .= $c->getConfigColumn('whatsapp_contact')->render();
+		}
+		
+		return $text;
 	}
 	
 	public function createForm(GDT_Form $form) : void
