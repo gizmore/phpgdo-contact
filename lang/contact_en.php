@@ -40,6 +40,8 @@ The %2$s Team',
 	'md_contact_form' => 'Contact the admins of %s',
 	'list_contact_messages' => '%s Contact messages',
 	
-	# 7.0.0
-	'cntctmsg_title' => 'Title: %s',
+	# 7.0.1
+	'cfg_div_whatsapp' => 'WhatsApp Settings',
+	'cfg_whatsapp_settings' => 'WhatsApp Profile Settings?',
+	'cfg_whatsapp_contact' => 'WhatsApp Contact Data',
 ];

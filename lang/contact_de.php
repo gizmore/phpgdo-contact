@@ -39,4 +39,8 @@ Das %2$s Team',
 
 'md_contact_form' => 'Kontaktiere die %s Administratoren und Ansprechpartner.',
 'list_contact_messages' => '%s Kontakt Nachrichten',
+	# 7.0.1
+	'cfg_div_whatsapp' => 'WhatsApp Einstellungen',
+	'cfg_whatsapp_settings' => 'WhatsApp im Profil?',
+	'cfg_whatsapp_contact' => 'WhatsApp Kontaktdaten',
 );

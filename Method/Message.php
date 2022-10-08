@@ -15,9 +15,9 @@ final class Message extends Method
 {
 	use MethodAdmin;
 	
-	public function getPermission() : ?string { return 'staff'; }
-	
 	private GDO_ContactMessage $message;
+
+	public function getPermission() : ?string { return 'staff'; }
 	
 	public function gdoParameters() : array
 	{

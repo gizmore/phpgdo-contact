@@ -11,9 +11,7 @@ use GDO\UI\GDT_Divider;
 use GDO\Core\GDT;
 
 /**
- * Contact Module.
- * Provides contact to admins, and
- * Write users a mail without spoiling their email.
+ * Contact Module. Provides contact to admins. Adds all member's WhatsApp number to profile.
  * 
  * @author gizmore
  * @version 7.0.1
@@ -37,8 +35,8 @@ final class Module_Contact extends GDO_Module
 			GDT_Email::make('contact_mail')->initial(GDO_ADMIN_EMAIL)->required(),
 			GDT_Email::make('contact_mail_sender')->initial(GDO_BOT_EMAIL)->notNull(),
 			GDT_Email::make('contact_mail_receiver'),
-		    GDT_PageBar::make('hook_bar')->initial('bottom'),
-			GDT_Divider::make('div_whatsapp_settings'),
+		    GDT_PageBar::make('hook_sidebar')->initial('bottom'),
+			GDT_Divider::make('div_whatsapp'),
 			GDT_WhatsApp::make('whatsapp_contact'),
 			GDT_Checkbox::make('whatsapp_settings')->initial('1'),
 		];
@@ -61,10 +59,10 @@ final class Module_Contact extends GDO_Module
 	public function cfgCaptchaGuest(): bool { return $this->getConfigValue('contact_captcha', '1') && module_enabled('Captcha'); }
 	public function cfgCaptchaMember(): bool { return $this->getConfigValue('member_captcha', '0') && module_enabled('Captcha'); }
 	public function cfgCaptchaEnabled(): bool { return GDO_User::current()->isMember() ? $this->cfgCaptchaMember() : $this->cfgCaptchaGuest(); }
-	public function cfgEmail(): string { return $this->getConfigVar('contact_mail'); }
-	public function cfgEmailSender(): string { return $this->getConfigVar('contact_mail_sender'); }
-	public function cfgEmailReceiver(): string { return $this->getConfigVar('contact_mail_receiver'); }
-	public function cfgWhatsAppContact(): string { return $this->getConfigVar('whatsapp_contact'); }
+	public function cfgEmail(): ?string { return $this->getConfigVar('contact_mail'); }
+	public function cfgEmailSender(): ?string { return $this->getConfigVar('contact_mail_sender'); }
+	public function cfgEmailReceiver(): ?string { return $this->getConfigVar('contact_mail_receiver'); }
+	public function cfgWhatsAppContact(): ?string { return $this->getConfigVar('whatsapp_contact'); }
 	public function cfgWhatsAppSettings(): bool { return $this->getConfigValue('whatsapp_settings'); }
 	
 	##############
@@ -72,7 +70,7 @@ final class Module_Contact extends GDO_Module
 	##############
 	public function onInitSidebar() : void
 	{
-		$bar = $this->getConfigValue('hook_bar');
+		$bar = $this->getConfigValue('hook_sidebar');
 	    $bar->addField(GDT_Link::make('link_contact')
 	    	->href($this->href('Form'))
 	    	->icon('message'));

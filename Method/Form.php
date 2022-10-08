@@ -14,8 +14,7 @@ use GDO\User\GDT_ProfileLink;
 use GDO\UI\GDT_Link;
 
 /**
- * Contact form.
- * Sends mail to staff or single recipient in module config.
+ * Contact form. Sends mail to staff or single recipient in module config.
  * 
  * @author gizmore
  * @version 7.0.1

@@ -10,6 +10,7 @@ use GDO\UI\GDT_Button;
 
 /**
  * List contact messages for staff members.
+ * 
  * @author gizmore
  */
 final class Messages extends MethodQueryTable

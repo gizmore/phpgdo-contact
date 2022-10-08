@@ -39,4 +39,8 @@ Il suo %2$s Team',
 'tt_cfg_contact_mail_receiver' => 'If set this is the only reciver mail in the contact mailing process.',
 'md_contact_form' => 'Contattare gli amministratori del %s e i contatti.',
 'list_contact_messages' => '%s messaggi di contatto',
+	
+	'cfg_div_whatsapp' => 'Impostazioni di WhatsApp',
+	'cfg_whatsapp_settings' => 'Impostazioni del profilo Whatsapp',
+	'cfg_whatsapp_contact' => 'Dati di contatto Whatsapp',
 );
