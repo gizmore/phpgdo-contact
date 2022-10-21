@@ -58,6 +58,7 @@ final class Form extends MethodForm
 	    $form->textRaw($this->getInfoText());
 		$form->addFields(...GDO_ContactMessage::table()->getGDOColumns($this->contactFields()));
 		$form->getField('cmsg_email')->initial(GDO_User::current()->getMail());
+		$form->getField('cmsg_title')->label('title');
 		if (Module_Contact::instance()->cfgCaptchaEnabled())
 		{
 			$form->addField(GDT_Captcha::make());
