@@ -43,4 +43,5 @@ Il suo %2$s Team',
 	'cfg_div_whatsapp' => 'Impostazioni di WhatsApp',
 	'cfg_whatsapp_settings' => 'Impostazioni del profilo Whatsapp',
 	'cfg_whatsapp_contact' => 'Dati di contatto Whatsapp',
+	'whatsapp_number' => 'WhatsApp',
 );

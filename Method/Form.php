@@ -12,6 +12,7 @@ use GDO\Mail\Mail;
 use GDO\User\GDO_User;
 use GDO\User\GDT_ProfileLink;
 use GDO\UI\GDT_Link;
+use GDO\Util\Arrays;
 
 /**
  * Contact form. Sends mail to staff or single recipient in module config.
@@ -35,9 +36,9 @@ final class Form extends MethodForm
 		$names = [];
 		foreach (GDO_User::admins() as $admin)
 		{
-			$names[] = GDT_ProfileLink::make()->level()->user($admin)->nickname()->avatarUser($admin)->avatarSize(28)->renderHTML();
+			$names[] = GDT_ProfileLink::make()->level()->user($admin)->nickname()->avatar()->avatarUser($admin)->avatarSize(28)->renderHTML();
 		}
-		$names = implode(',', $names);
+		$names = Arrays::implodeHuman($names);
 		$email = $c->cfgEmail();
 		$subject = t('mail_subj_contact', [sitename()]);
 		$email = GDT_Link::make()->href('mailto:'.$email.'?subject='.urlencode($subject))->textRaw($email)->renderHTML();
