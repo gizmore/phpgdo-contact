@@ -10,31 +10,32 @@ use GDO\UI\GDT_Button;
 
 /**
  * List contact messages for staff members.
- * 
+ *
  * @author gizmore
  */
 final class Messages extends MethodQueryTable
 {
+
 	use MethodAdmin;
-	
-	public function getPermission() : ?string { return 'staff'; }
-	
-	public function getMethodTitle() : string
+
+	public function getPermission(): ?string { return 'staff'; }
+
+	public function getMethodTitle(): string
 	{
 		return t('card_title_contact_message');
 	}
-	
-	public function gdoTable() : GDO
+
+	public function gdoTable(): GDO
 	{
-	    return GDO_ContactMessage::table();
+		return GDO_ContactMessage::table();
 	}
-	
-	public function getQuery() : Query
+
+	public function getQuery(): Query
 	{
-	    return $this->gdoTable()->select();
+		return $this->gdoTable()->select();
 	}
-	
-	public function gdoHeaders() : array
+
+	public function gdoHeaders(): array
 	{
 		$gdo = $this->gdoTable();
 		return [
@@ -46,5 +47,5 @@ final class Messages extends MethodQueryTable
 			GDT_Button::make('link_message'),
 		];
 	}
-	
+
 }

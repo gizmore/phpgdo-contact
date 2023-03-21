@@ -1,19 +1,20 @@
 <?php
 namespace GDO\Contact\lang;
-return array(
-'link_contact' => 'Kontakt',
-'link_message' => 'Show',
-'contact_info' => 'Hier können Sie die Adminstratoren kontaktieren: %s. Sie können auch direkt eine Email an %s schreiben.',
+
+return [
+	'link_contact' => 'Kontakt',
+	'link_message' => 'Show',
+	'contact_info' => 'Hier können Sie die Adminstratoren kontaktieren: %s. Sie können auch direkt eine Email an %s schreiben.',
 ######################################
-'mt_contact_form' => 'Kontakt',
-'msg_contact_mail_sent' => 'Ihre Nachricht wurde an die Adminstratoren gesendet.',
+	'mt_contact_form' => 'Kontakt',
+	'msg_contact_mail_sent' => 'Ihre Nachricht wurde an die Adminstratoren gesendet.',
 ######################################
-'card_title_contact_message' => 'Kontakt Nachricht',
-'msg_by' => 'Nachricht von %s',
-'msg_title' => 'Titel: %s',
+	'card_title_contact_message' => 'Kontakt Nachricht',
+	'msg_by' => 'Nachricht von %s',
+	'msg_title' => 'Titel: %s',
 ######################################
-'mail_subj_contact' => '[%s] Kontakt Nachricht',
-'mail_body_contact' => '
+	'mail_subj_contact' => '[%s] Kontakt Nachricht',
+	'mail_body_contact' => '
 Hallo %s,
 
 Das Kontakt-Formular auf %s wurde benutzt und eine Nachricht versendet.
@@ -27,21 +28,21 @@ Titel: %s
 Viele Grüße
 Das %2$s Team',
 ######################################
-'contact_mail_sender_name' => '%s Support',
-'contact_mail_receiver_name' => '%s Support',
+	'contact_mail_sender_name' => '%s Support',
+	'contact_mail_receiver_name' => '%s Support',
 ######################################
-'cfg_contact_captcha' => 'Captcha benötigt?',
-'cfg_member_captcha' => 'Captcha auch für Mitglieder?',
-'cfg_contact_mail' => 'Email für Direktkontakt',
-'cfg_contact_mail_sender' => 'Email für Absender',
-'cfg_contact_mail_receiver' => 'Email für Verteilerempfang',
-'tt_cfg_contact_mail_receiver' => 'Ist dies gesetzt wird nur eine einzige Email gesendet anstatt an alle Mitarbeiter einzeln.',
+	'cfg_contact_captcha' => 'Captcha benötigt?',
+	'cfg_member_captcha' => 'Captcha auch für Mitglieder?',
+	'cfg_contact_mail' => 'Email für Direktkontakt',
+	'cfg_contact_mail_sender' => 'Email für Absender',
+	'cfg_contact_mail_receiver' => 'Email für Verteilerempfang',
+	'tt_cfg_contact_mail_receiver' => 'Ist dies gesetzt wird nur eine einzige Email gesendet anstatt an alle Mitarbeiter einzeln.',
 
-'md_contact_form' => 'Kontaktiere die %s Administratoren und Ansprechpartner.',
-'list_contact_messages' => '%s Kontakt Nachrichten',
+	'md_contact_form' => 'Kontaktiere die %s Administratoren und Ansprechpartner.',
+	'list_contact_messages' => '%s Kontakt Nachrichten',
 	# 7.0.1
 	'cfg_div_whatsapp' => 'WhatsApp Einstellungen',
 	'cfg_whatsapp_settings' => 'WhatsApp im Profil?',
 	'cfg_whatsapp_contact' => 'WhatsApp Kontaktdaten',
 	'whatsapp_number' => 'WhatsApp',
-);
+];

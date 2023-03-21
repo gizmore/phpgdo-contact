@@ -9,27 +9,37 @@ use GDO\Form\GDT_Form;
 use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
 use GDO\Mail\Mail;
+use GDO\UI\GDT_Link;
 use GDO\User\GDO_User;
 use GDO\User\GDT_ProfileLink;
-use GDO\UI\GDT_Link;
 use GDO\Util\Arrays;
 
 /**
  * Contact form. Sends mail to staff or single recipient in module config.
- * 
- * @author gizmore
+ *
  * @version 7.0.1
  * @since 3.2.0
+ * @author gizmore
  */
 final class Form extends MethodForm
 {
-	public function isUserRequired() : bool { return false; }
-	
-	public function contactFields()
+
+	public function isUserRequired(): bool { return false; }
+
+	public function createForm(GDT_Form $form): void
 	{
-		return ['cmsg_email', 'cmsg_title', 'cmsg_message'];
+		$form->textRaw($this->getInfoText());
+		$form->addFields(...GDO_ContactMessage::table()->getGDOColumns($this->contactFields()));
+		$form->getField('cmsg_email')->initial(GDO_User::current()->getMail());
+		$form->getField('cmsg_title')->label('title');
+		if (Module_Contact::instance()->cfgCaptchaEnabled())
+		{
+			$form->addField(GDT_Captcha::make());
+		}
+		$form->addField(GDT_AntiCSRF::make());
+		$form->actions()->addField(GDT_Submit::make()->label('btn_send'));
 	}
-	
+
 	private function getInfoText(): string
 	{
 		$c = Module_Contact::instance();
@@ -41,33 +51,24 @@ final class Form extends MethodForm
 		$names = Arrays::implodeHuman($names);
 		$email = $c->cfgEmail();
 		$subject = t('mail_subj_contact', [sitename()]);
-		$email = GDT_Link::make()->href('mailto:'.$email.'?subject='.urlencode($subject))->textRaw($email)->renderHTML();
-		
+		$email = GDT_Link::make()->href('mailto:' . $email . '?subject=' . urlencode($subject))->textRaw($email)->renderHTML();
+
 		$text = t('contact_info', [$names, $email]);
-		
+
 		if ($c->cfgWhatsAppContact())
 		{
 			$text .= "<br/>\n";
 			$text .= $c->getConfigColumn('whatsapp_contact')->render();
 		}
-		
+
 		return $text;
 	}
-	
-	public function createForm(GDT_Form $form) : void
+
+	public function contactFields()
 	{
-	    $form->textRaw($this->getInfoText());
-		$form->addFields(...GDO_ContactMessage::table()->getGDOColumns($this->contactFields()));
-		$form->getField('cmsg_email')->initial(GDO_User::current()->getMail());
-		$form->getField('cmsg_title')->label('title');
-		if (Module_Contact::instance()->cfgCaptchaEnabled())
-		{
-			$form->addField(GDT_Captcha::make());
-		}
-		$form->addField(GDT_AntiCSRF::make());
-		$form->actions()->addField(GDT_Submit::make()->label('btn_send'));
+		return ['cmsg_email', 'cmsg_title', 'cmsg_message'];
 	}
-	
+
 	public function formValidated(GDT_Form $form)
 	{
 		$message = GDO_ContactMessage::blank($form->getFormVars())->insert();
@@ -75,7 +76,7 @@ final class Form extends MethodForm
 		$this->resetForm(true);
 		return $this->message('msg_contact_mail_sent', [sitename()])->addField($this->renderPage());
 	}
-	
+
 	############
 	### Mail ###
 	############
@@ -93,7 +94,7 @@ final class Form extends MethodForm
 			}
 		}
 	}
-	
+
 	private function sendSingleMail($to, GDO_ContactMessage $message)
 	{
 		$user = GDO_User::blank([
@@ -103,7 +104,7 @@ final class Form extends MethodForm
 		]);
 		return $this->sendMail($user, $message);
 	}
-	
+
 	private function sendMail(GDO_User $user, GDO_ContactMessage $message)
 	{
 		$module = Module_Contact::instance();

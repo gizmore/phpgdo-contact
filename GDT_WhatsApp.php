@@ -5,12 +5,12 @@ use GDO\Core\GDT_String;
 
 /**
  * WhatsApp-Contact, freetext.
- * 
+ *
  * @author gizmore
  */
 final class GDT_WhatsApp extends GDT_String
 {
-	
+
 	protected function __construct()
 	{
 		parent::__construct();

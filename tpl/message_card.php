@@ -1,9 +1,11 @@
 <?php
 namespace GDO\Contact\tpl;
+
 use GDO\Contact\GDO_ContactMessage;
 use GDO\UI\GDT_Back;
 use GDO\UI\GDT_Card;
-/** @var $message GDO_ContactMessage **/
+
+/** @var $message GDO_ContactMessage * */
 
 $user = $message->getUser();
 $username = $user->renderUserName();

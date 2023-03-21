@@ -1,5 +1,6 @@
 <?php
 namespace GDO\Contact\lang;
+
 return [
 	'link_contact' => 'Contact',
 	'link_message' => 'Show',
@@ -36,10 +37,10 @@ The %2$s Team',
 	'cfg_contact_mail_sender' => 'Email sender',
 	'cfg_contact_mail_receiver' => 'Email for mailing list receivement',
 	'tt_cfg_contact_mail_receiver' => 'If set this is the only reciver mail in the contact mailing process.',
-	
+
 	'md_contact_form' => 'Contact the admins of %s',
 	'list_contact_messages' => '%s Contact messages',
-	
+
 	# 7.0.1
 	'cfg_div_whatsapp' => 'WhatsApp Settings',
 	'cfg_whatsapp_settings' => 'WhatsApp Profile Settings?',
