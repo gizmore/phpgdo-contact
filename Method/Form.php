@@ -4,6 +4,7 @@ namespace GDO\Contact\Method;
 use GDO\Captcha\GDT_Captcha;
 use GDO\Contact\GDO_ContactMessage;
 use GDO\Contact\Module_Contact;
+use GDO\Core\GDT;
 use GDO\Form\GDT_AntiCSRF;
 use GDO\Form\GDT_Form;
 use GDO\Form\GDT_Submit;
@@ -69,7 +70,7 @@ final class Form extends MethodForm
 		return ['cmsg_email', 'cmsg_title', 'cmsg_message'];
 	}
 
-	public function formValidated(GDT_Form $form)
+	public function formValidated(GDT_Form $form): GDT
 	{
 		$message = GDO_ContactMessage::blank($form->getFormVars())->insert();
 		$this->sendMails($message);

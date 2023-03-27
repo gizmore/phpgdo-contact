@@ -3,6 +3,7 @@ namespace GDO\Contact\Method;
 
 use GDO\Admin\MethodAdmin;
 use GDO\Contact\GDO_ContactMessage;
+use GDO\Core\GDT;
 use GDO\Core\GDT_Object;
 use GDO\Core\Method;
 
@@ -27,7 +28,7 @@ final class Message extends Method
 		];
 	}
 
-	public function execute()
+	public function execute(): GDT
 	{
 		return $this->templateMessage($this->getMessage());
 	}
