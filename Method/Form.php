@@ -27,7 +27,7 @@ final class Form extends MethodForm
 
 	public function isUserRequired(): bool { return false; }
 
-	public function createForm(GDT_Form $form): void
+	protected function createForm(GDT_Form $form): void
 	{
 		$form->textRaw($this->getInfoText());
 		$form->addFields(...GDO_ContactMessage::table()->getGDOColumns($this->contactFields()));
