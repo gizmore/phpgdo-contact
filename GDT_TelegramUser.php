@@ -28,15 +28,15 @@ final class GDT_TelegramUser extends GDT_String
 	/** Store the canonical username without its presentation prefix. */
 	public function var(?string $var): static
 	{
-		return parent::var($this->normalize($var));
+		return parent::var($this->normalizeTelegram($var));
 	}
 
 	public function inputToVar(array|int|string|null|GDT_Method $input): ?string
 	{
-		return $this->normalize(parent::inputToVar($input));
+		return $this->normalizeTelegram(parent::inputToVar($input));
 	}
 
-	private function normalize(?string $username): ?string
+	private function normalizeTelegram(?string $username): ?string
 	{
 		return ($username !== null && str_starts_with($username, '@')) ? substr($username, 1) : $username;
 	}
