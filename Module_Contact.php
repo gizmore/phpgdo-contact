@@ -2,7 +2,6 @@
 namespace GDO\Contact;
 
 use GDO\Core\GDO_Module;
-use GDO\Core\GDT;
 use GDO\Core\GDT_Checkbox;
 use GDO\Mail\GDT_Email;
 use GDO\UI\GDT_Divider;
@@ -50,13 +49,14 @@ final class Module_Contact extends GDO_Module
 
 	public function getUserSettings(): array
 	{
+		$settings = [
+			GDT_TelegramUser::make('my_telegram'),
+		];
 		if ($this->cfgWhatsAppSettings())
 		{
-			return [
-				GDT_WhatsApp::make('whatsapp_number'),
-			];
+			$settings[] = GDT_WhatsApp::make('whatsapp_number');
 		}
-		return GDT::EMPTY_ARRAY;
+		return $settings;
 	}
 
 	##############

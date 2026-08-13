@@ -45,4 +45,6 @@ Das %2$s Team',
 	'cfg_whatsapp_settings' => 'WhatsApp im Profil?',
 	'cfg_whatsapp_contact' => 'WhatsApp Kontaktdaten',
 	'whatsapp_number' => 'WhatsApp',
+	'my_telegram' => 'Telegram',
+	'telegram' => 'Telegram',
 ];
