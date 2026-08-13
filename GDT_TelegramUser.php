@@ -22,7 +22,6 @@ final class GDT_TelegramUser extends GDT_String
 		$this->ascii()->caseI();
 		$this->min(5)->max(32);
 		$this->pattern('/^[A-Za-z][A-Za-z0-9_]{4,31}$/D');
-		$this->placeholder('@username');
 	}
 
 	/** Store the canonical username without its presentation prefix. */
