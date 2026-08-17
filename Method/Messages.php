@@ -30,7 +30,7 @@ final class Messages extends MethodQueryTable
 		return GDO_ContactMessage::table();
 	}
 
-	public function getQuery(): Query
+	public function gdoQuery(): Query
 	{
 		return $this->gdoTable()->select();
 	}
