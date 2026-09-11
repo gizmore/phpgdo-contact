@@ -30,7 +30,7 @@ final class GDT_TelegramUser extends GDT_String
 		return parent::var($this->normalizeTelegram($var));
 	}
 
-	public function inputToVar(array|int|string|null|GDT_Method $input): ?string
+	public function inputToVar(array|int|float|string|null|GDT_Method $input): ?string
 	{
 		return $this->normalizeTelegram(parent::inputToVar($input));
 	}
