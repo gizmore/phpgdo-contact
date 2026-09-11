@@ -3,7 +3,7 @@ namespace GDO\Contact\lang;
 
 return [
 	'link_contact' => 'Kontakt',
-	'link_message' => 'Show',
+	'link_message' => 'Anzeigen',
 	'contact_info' => 'Hier können Sie die Adminstratoren kontaktieren: %s. Sie können auch direkt eine Email an %s schreiben.',
 ######################################
 	'mt_contact_form' => 'Kontakt',
